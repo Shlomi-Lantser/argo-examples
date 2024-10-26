@@ -2,7 +2,7 @@ replicas: 2
 
 namespace: prod
 
-appName: helm-webapp-prod
+appName: helmwebapp-prod
 
 configmap:
   data:
