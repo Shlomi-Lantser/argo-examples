@@ -1,5 +1,9 @@
 appName: myhelmapp
 
+namespace: default
+
+ingresspath: /
+
 port: 80
 
 configmap:
