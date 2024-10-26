@@ -12,10 +12,10 @@ spec:
   rules:
   - http:
       paths:
-      - path: {{ .Values.ingresspath }}
+      - path: /dev
         pathType: Prefix
         backend:
           service:
-            name: helm-webapp-prod-external
+            name: myhelmapp.dev.svc.cluster.local
             port:
               number: 80
