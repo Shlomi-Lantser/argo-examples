@@ -3,7 +3,7 @@ replicas: 2
 
 namespace: dev
 
-appName: helm-webapp-dev
+appName: helmwebapp-dev
 
 configmap:
   data:
