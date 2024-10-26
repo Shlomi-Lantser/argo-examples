@@ -12,10 +12,10 @@ spec:
   rules:
   - http:
       paths:
-      - path: /dev
+      - path: {{ .Values.ingresspath }}
         pathType: Prefix
         backend:
           service:
-            name: myhelmapp-dev-external
+            name: {{ .Values.servicename }}
             port:
               number: 80
