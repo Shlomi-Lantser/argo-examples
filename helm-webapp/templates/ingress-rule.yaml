@@ -16,6 +16,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: myhelmapp.dev.svc.cluster.local
+            name: myhelmapp-dev-external
             port:
               number: 80
