@@ -5,4 +5,4 @@ metadata:
   namespace: default  # The namespace where you want to create the reference
 spec:
   type: ExternalName
-  externalName: {{.Values.appName }}.{{ .Values.namespace }}.dev.svc.cluster.local  # Full DNS name of the service in the 'prod' namespace
+  externalName: myhelmapp-prod.prod.svc.cluster.local  # Full DNS name of the service in the 'prod' namespace
