@@ -1,6 +1,10 @@
 
 replicas: 5
 
+appName: helm-webapp-dev
+
 configmap:
   data:
     CUSTOM_HEADER: 'This is on the DEV environment!'
+
+ingresspath: /dev
