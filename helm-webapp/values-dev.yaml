@@ -1,6 +1,8 @@
 
 replicas: 5
 
+namespace: dev
+
 appName: helm-webapp-dev
 
 configmap:
