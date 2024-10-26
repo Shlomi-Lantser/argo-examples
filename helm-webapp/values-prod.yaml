@@ -1,6 +1,11 @@
+replicas: 2
 
-replicas: 4
+namespace: dev
+
+appName: helm-webapp-dev
 
 configmap:
   data:
     CUSTOM_HEADER: 'This is on the PROD environment!'
+
+ingresspath: /dev
