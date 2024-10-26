@@ -16,6 +16,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: {{ .Values.appName }}.{{ .Values.namespace }}.svc.cluster.local
+            name: '{{ .Values.appName }}.{{ .Values.namespace }}.svc.cluster.local'
             port:
               number: 80
