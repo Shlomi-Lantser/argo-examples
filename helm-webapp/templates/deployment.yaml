@@ -39,6 +39,11 @@ spec:
             secretKeyRef:
               name: test-secret
               key: CUSTOM_HEADER
+        - name: STAM_TEST
+          valueFrom:
+            secretKeyRef:
+              name: STAM_TEST
+              key: STAM_TEST
         volumeMounts:
         - name: secrets-store01-inline
           mountPath: "/mnt/secrets-store"
