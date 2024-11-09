@@ -33,6 +33,12 @@ spec:
         envFrom:
         - configMapRef:
             name: {{ .Values.configmap.name }}
+        env:
+        - name: CUSTOM_HEADER
+          valueFrom:
+            secretKeyRef:
+              name: test-secret
+              key: CUSTOM_HEADER
         volumeMounts:
         - name: secrets-store01-inline
           mountPath: "/mnt/secrets-store"
