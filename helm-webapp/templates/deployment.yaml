@@ -42,7 +42,7 @@ spec:
         - name: STAM_TEST
           valueFrom:
             secretKeyRef:
-              name: stam-test
+              name: stam-test-secret
               key: STAM_TEST
         volumeMounts:
         - name: secrets-store01-inline
