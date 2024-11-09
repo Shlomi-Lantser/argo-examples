@@ -1,34 +1,34 @@
-apiVersion: secrets-store.csi.x-k8s.io/v1
-kind: SecretProviderClass
-metadata:
-  namespace: {{ .Values.namespace }}
-  name: sc-demo-keyvault-csi
-spec:
-  provider: azure
-  parameters:
-    usePodIdentity: "false"
-    useVMManagedIdentity: "true"
-    userAssignedIdentityID: 10cd5fc0-58ac-4ba8-ab23-8bfe7c6162d2
-    keyvaultName: shlomi-test-cluster-kv
-    objects:  |
-      array:
-        - |
-          objectName: test-secret
-          objectType: secret
-        - |
-          objectName: stam-test
-          objectType: secret
-    enableSecretRotation: "true"
-    rotationPollInterval: "10s"  
-    tenantId: 134f5740-154b-4915-9e20-7f25e65d6edc
-  secretObjects:                              # Add this section
-    - secretName: test-secret                 # This creates the Kubernetes secret your deployment is looking for
-      type: Opaque
-      data:
-      - objectName: test-secret               # Name of the secret in Key Vault
-        key: CUSTOM_HEADER                    # Key in the Kubernetes secret that your deployment references
-    - secretName: stam-test-secret           # Create another Kubernetes secret if needed
-      type: Opaque
-      data:
-      - objectName: stam-test
-        key: STAM_TEST
+# apiVersion: secrets-store.csi.x-k8s.io/v1
+# kind: SecretProviderClass
+# metadata:
+#   namespace: {{ .Values.namespace }}
+#   name: sc-demo-keyvault-csi
+# spec:
+#   provider: azure
+#   parameters:
+#     usePodIdentity: "false"
+#     useVMManagedIdentity: "true"
+#     userAssignedIdentityID: 10cd5fc0-58ac-4ba8-ab23-8bfe7c6162d2
+#     keyvaultName: shlomi-test-cluster-kv
+#     objects:  |
+#       array:
+#         - |
+#           objectName: test-secret
+#           objectType: secret
+#         - |
+#           objectName: stam-test
+#           objectType: secret
+#     enableSecretRotation: "true"
+#     rotationPollInterval: "10s"  
+#     tenantId: 134f5740-154b-4915-9e20-7f25e65d6edc
+#   secretObjects:                              # Add this section
+#     - secretName: test-secret                 # This creates the Kubernetes secret your deployment is looking for
+#       type: Opaque
+#       data:
+#       - objectName: test-secret               # Name of the secret in Key Vault
+#         key: CUSTOM_HEADER                    # Key in the Kubernetes secret that your deployment references
+#     - secretName: stam-test-secret           # Create another Kubernetes secret if needed
+#       type: Opaque
+#       data:
+#       - objectName: stam-test
+#         key: STAM_TEST
