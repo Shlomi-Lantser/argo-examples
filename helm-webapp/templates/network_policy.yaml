@@ -1,15 +1,15 @@
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: allow-ingress-nginx-to-{{ .Values.namespace }}
-  namespace: {{ .Values.namespace }}
-spec:
-  podSelector: {}
-  ingress:
-  - from:
-    - namespaceSelector:
-        matchLabels:
-          app.kubernetes.io/name: ingress-nginx
-    ports:
-    - protocol: TCP
-      port: 80
+# apiVersion: networking.k8s.io/v1
+# kind: NetworkPolicy
+# metadata:
+#   name: allow-ingress-nginx-to-{{ .Values.namespace }}
+#   namespace: {{ .Values.namespace }}
+# spec:
+#   podSelector: {}
+#   ingress:
+#   - from:
+#     - namespaceSelector:
+#         matchLabels:
+#           app.kubernetes.io/name: ingress-nginx
+#     ports:
+#     - protocol: TCP
+#       port: 80
