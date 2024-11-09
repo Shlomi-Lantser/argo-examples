@@ -18,6 +18,8 @@ spec:
         - |
           objectName: stam-test
           objectType: secret
+    enableSecretRotation: "true"
+    rotationPollInterval: "1m"  
     tenantId: 134f5740-154b-4915-9e20-7f25e65d6edc
   secretObjects:                              # Add this section
     - secretName: test-secret                 # This creates the Kubernetes secret your deployment is looking for
