@@ -19,13 +19,6 @@ spec:
         app: {{ .Values.appName }}
         tier: frontend
     spec: # Pod spec
-      volumes:
-      - name: secrets-store01-inline
-        csi:
-          driver: secrets-store.csi.k8s.io
-          readOnly: true
-          volumeAttributes:
-            secretProviderClass: "sc-demo-keyvault-csi"
       containers:
       - name: mycontainer
         image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
@@ -45,14 +38,3 @@ spec:
             secretKeyRef:
               name: stam-test-secret
               key: STAM_TEST
-        volumeMounts:
-        - name: secrets-store01-inline
-          mountPath: "/mnt/secrets-store"
-          readOnly: true
-        resources:
-          requests:
-            memory: "16Mi" 
-            cpu: "50m"    # 500milliCPUs (1/2 CPU)
-          limits:
-            memory: "128Mi"
-            cpu: "100m"
