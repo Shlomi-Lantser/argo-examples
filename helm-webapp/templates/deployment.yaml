@@ -18,6 +18,13 @@ spec:
         app: {{ .Values.appName }}
         tier: frontend
     spec: # Pod spec
+      volumes:
+      - name: secrets-store01-inline
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: "sc-demo-keyvault-csi"
       containers:
       - name: mycontainer
         image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
@@ -26,6 +33,10 @@ spec:
         envFrom:
         - configMapRef:
             name: {{ .Values.configmap.name }}
+        volumeMounts:
+        - name: secrets-store01-inline
+          mountPath: "/mnt/secrets-store"
+          readOnly: true
         resources:
           requests:
             memory: "16Mi" 
