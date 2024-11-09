@@ -10,7 +10,8 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - http:
+  - host:
+    http:
       paths:
       - path: {{ .Values.ingresspath }}
         pathType: Prefix
