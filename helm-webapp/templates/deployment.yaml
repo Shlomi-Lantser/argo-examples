@@ -27,14 +27,3 @@ spec:
         envFrom:
         - configMapRef:
             name: {{ .Values.configmap.name }}
-        env:
-        - name: CUSTOM_HEADER
-          valueFrom:
-            secretKeyRef:
-              name: test-secret
-              key: CUSTOM_HEADER
-        - name: STAM_TEST
-          valueFrom:
-            secretKeyRef:
-              name: stam-test-secret
-              key: STAM_TEST
